@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Manager</title>
+    <!-- JQUERY -->
+    <script src="../resources/js/extern/mdbootststrap/jquery.min.js"></script>
+    <script>
+        var $ = jQuery = require('jquery');
+    </script>
+
+    <link rel="stylesheet" href="../resources/styles/extern/bootstrap.min.css">
+    <link rel="stylesheet" href="../resources/styles/extern/mdb.min.css">
+    <link rel="stylesheet" href="../resources/styles/extern/mdb.lite.min.css">
+    <link rel="stylesheet" href="../resources/styles/global.css">
+    <link rel="stylesheet" href="../resources/styles/main.css">
+    <link rel="stylesheet" href="../resources/styles/dashboard.css">
+    <link rel="stylesheet" href="../resources/styles/images.css">
+
+    <script src="../resources/js/extern/mdbootststrap/bootstrap.min.js"></script>
+    <script src="../resources/js/extern/mdbootststrap/mdb.min.js"></script>
+    <script src="../resources/js/extern/mdbootststrap/popper.min.js"></script>
+</head>
+
+<body>
+    
+    <div class="content">
+        <div class="left-nav">
+            <div class="logo">
+                <img src="logo" alt="logo">
+            </div>
+            <div class="options">
+                <ul>
+                    <li onclick="changePage(event)" id="dashboard" class="list-element">Dashboard</li>
+                    <li onclick="changePage(event)" id="images" class="list-element list-element-selected">Images</li>
+                    <li onclick="changePage(event)" id="containers" class="list-element">Containers</li>
+                    <li onclick="changePage(event)" id="volumes" class="list-element">Volumes</li>
+                    <li onclick="changePage(event)" id="networks" class="list-element">Networks</li>
+                    <li onclick="changePage(event)" id="compose" class="list-element">Compose</li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-panel dashboard hide">
+            <div class="counts">
+                <div class="box noselect running">Running</div>
+                <div class="box noselect paused">Paused</div>
+                <div class="box noselect stopped">Stopped</div>
+                <div class="box noselect images">Images</div>
+            </div>
+            <div class="general-stats">
+                <div class="box total-images"></div>
+                <div class="box total-containers"></div>
+            </div>
+        </div>
+        <div class="right-panel images">
+            <!-- IMAGES SECTION -->
+            <div class="images-management">
+                <div class="images-list">
+                    <ul>
+                       <li>
+                           <div class="name">
+                            My Image Name : Tag
+                           </div>
+                           <div class="options">
+                                <img width="35px" src="../resources/images/play.png" alt="start container">
+                                <img width="25px" src="../resources/images/delete.png" alt="delete image">                           
+                           </div>
+                        </li> 
+                        <li>
+                            <div class="name">
+                             My Image Name : Tag
+                            </div>
+                            <div class="options">
+                                 <img width="35px" src="../resources/images/play.png" alt="start container">
+                                 <img width="25px" src="../resources/images/delete.png" alt="delete image">                           
+                            </div>
+                         </li> 
+                         <li>
+                            <div class="name">
+                             My Image Name : Tag
+                            </div>
+                            <div class="options">
+                                 <img width="35px" src="../resources/images/play.png" alt="start container">
+                                 <img width="25px" src="../resources/images/delete.png" alt="delete image">                           
+                            </div>
+                         </li> 
+                         <li>
+                            <div class="name">
+                             My Image Name : Tag
+                            </div>
+                            <div class="options">
+                                 <img width="35px" src="../resources/images/play.png" alt="start container">
+                                 <img width="25px" src="../resources/images/delete.png" alt="delete image">                           
+                            </div>
+                         </li> 
+                         <li>
+                            <div class="name">
+                             My Image Name : Tag
+                            </div>
+                            <div class="options">
+                                 <img width="35px" src="../resources/images/play.png" alt="start container">
+                                 <img width="25px" src="../resources/images/delete.png" alt="delete image">                           
+                            </div>
+                         </li> 
+                    </ul>
+                </div>
+                <div class="general-options">
+                    <button class="btn">Create/Build Image</button>
+                </div>
+            </div>
+            <div class="terminal-logs">
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+    </div>    
+
+    <script src="../resources/js/main.js"></script>
+</body>
+
+</html>
