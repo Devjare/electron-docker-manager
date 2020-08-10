@@ -29,7 +29,7 @@
    font-weight: 600;
    color: white;
    cursor: pointer;
-   transition: transform 500ms; /* Property Duration Easing Delay */
+   /* transition: transform 500ms; */
 }
 
 .box:hover {

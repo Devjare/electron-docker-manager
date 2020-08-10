@@ -3,14 +3,15 @@ const path = require('path');
 const url = require('url');
 const { create } = require('domain');
 const main = require('electron-reload');
+const { support } = require('jquery');
 
+app.set('viewengine', 'ejs');
 
 require('electron-reload')(__dirname);
 
 let mainWin, startupWin;
 
 app.on('ready', () => {
-    createMainWindow();
     startupWin = new BrowserWindow({
         parent: mainWin,
         modal: false,
@@ -28,7 +29,6 @@ app.on('ready', () => {
         protocol: 'file',
         slashes: true
     }));
-    mainWin.maximize();
     startupWin.center();
 });
 
@@ -50,10 +50,12 @@ function createMainWindow() {
         app.quit();
     });
     mainWin.setMenuBarVisibility(true);
+    mainWin.maximize();
 }
 
 ipcMain.on('settings-done', (e, settings) => {
     console.log('settings: ', settings);
+    createMainWindow();
     mainWin.webContents.send('some', settings);
     startupWin.close();
     mainWin.show();

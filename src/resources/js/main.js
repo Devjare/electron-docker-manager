@@ -47,3 +47,7 @@ function displayNewPage(id) {
     currentPageShowing.toggleClass('hide');
     nextPageToShow.toggleClass('hide');
 }
+
+$('#btnBuildImage').click((e) => {
+    $('#modalBuildImage').modal('show');
+});

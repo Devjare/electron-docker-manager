@@ -32,10 +32,16 @@
     align-content: center;
 }
 
+.someclass {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .images-list ul li:hover {
     transform: scale(1.02);
     box-shadow: 0 0 5px 3px darkgrey;
-    background-color: rgb(239, 251, 255);
+    background-color: rgb(243, 249, 255);
 }
 
 .general-options {
