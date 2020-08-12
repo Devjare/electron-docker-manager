@@ -1,17 +1,29 @@
-const { app, BrowserWindow, Menu, ipcMain } = require('electron');
+const {
+    app,
+    BrowserWindow,
+    Menu,
+    ipcMain,
+    protocol
+} = require('electron');
 const path = require('path');
 const url = require('url');
-const { create } = require('domain');
+const {
+    create
+} = require('domain');
 const main = require('electron-reload');
-const { support } = require('jquery');
+const {
+    support
+} = require('jquery');
 
-app.set('viewengine', 'ejs');
+// app.set('viewengine', 'ejs');
 
 require('electron-reload')(__dirname);
+require('ejs-electron');
 
 let mainWin, startupWin;
 
 app.on('ready', () => {
+    createStaticFilesProtocol();
     startupWin = new BrowserWindow({
         parent: mainWin,
         modal: false,
@@ -23,9 +35,9 @@ app.on('ready', () => {
         }
     });
     startupWin.setResizable(false);
-    startupWin.setMenu(null);
+    // startupWin.setMenu(null);
     startupWin.loadURL(url.format({
-        pathname: path.join(__dirname, 'views/start.html'),
+        pathname: path.join(__dirname, 'views/start.ejs'),
         protocol: 'file',
         slashes: true
     }));
@@ -41,7 +53,7 @@ function createMainWindow() {
         }
     });
     mainWin.loadURL(url.format({
-        pathname: path.join(__dirname, '/views/index.html'),
+        pathname: path.join(__dirname, '/views/index.ejs'),
         protocol: 'file',
         slashes: true
     }));
@@ -60,3 +72,18 @@ ipcMain.on('settings-done', (e, settings) => {
     startupWin.close();
     mainWin.show();
 });
+
+function createStaticFilesProtocol() {
+    protocol.registerFileProtocol('static', (request, callback) => {
+        const url = request.url.substr(7);
+        console.log('url req: ', url);
+        // in this case the path is through the __dirname
+        const urlpath = {
+            path: path.normalize(`${__dirname}/${url}`)
+        }
+        console.log('url path: ', urlpath);
+        callback(urlpath);
+    }, (error) => {
+        if (error) console.error('Falló al registrar protocolo');
+    });
+}

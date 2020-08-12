@@ -1,0 +1,39 @@
+<%- include('partials/_header_start.ejs')  %>
+<!-- TODO: Maybe you can use env variables to get the default data source -->
+<div class="header">
+    <div class="title">DOCKER MANAGER</div>
+</div>
+<div class="startup-form">
+    <div class="title-form">
+        Please fill the below data to proceed(Necesary)
+    </div>
+    <div class="startup-body">
+        <div class="data-source">
+            <div>Source:</div>
+            <select name="source" id="sourceSelect">
+                <option value="remote">Remote</option>
+                <option value="local">Local</option>
+            </select>
+        </div>
+        <div class="remote-options">
+            <div class="url">
+                <div class="ip">
+                    <div>Address: </div>
+                    <input type="text" name="ipaddress" id="ipaddress" placeholder="IP Address" maxlength="15"
+                        size="12">
+                </div>
+                <div class="port">
+                    <div>Port: </div>
+                    <input type="text" name="port" id="port" placeholder="Port" maxlength="6" size="4">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="startup-footer">
+        <button id="submitSettings">SET</button>
+    </div>
+</div>
+<script src="../resources/js/start.js"></script>
+</body>
+
+</html>
