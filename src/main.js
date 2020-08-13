@@ -1,21 +1,11 @@
 const {
     app,
     BrowserWindow,
-    Menu,
     ipcMain,
     protocol
 } = require('electron');
 const path = require('path');
 const url = require('url');
-const {
-    create
-} = require('domain');
-const main = require('electron-reload');
-const {
-    support
-} = require('jquery');
-
-// app.set('viewengine', 'ejs');
 
 require('electron-reload')(__dirname);
 require('ejs-electron');
@@ -75,12 +65,13 @@ ipcMain.on('settings-done', (e, settings) => {
 
 function createStaticFilesProtocol() {
     protocol.registerFileProtocol('static', (request, callback) => {
+        console.log('url full: ', request.url);
         const url = request.url.substr(7);
         console.log('url req: ', url);
         // in this case the path is through the __dirname
         const urlpath = {
             path: path.normalize(`${__dirname}/${url}`)
-        }
+        };
         console.log('url path: ', urlpath);
         callback(urlpath);
     }, (error) => {

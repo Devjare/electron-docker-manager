@@ -1,9 +1,9 @@
-<% include('partials/_header.ejs') %> 
+<%- include('partials/_header.ejs') %> 
 
     <div class="content">
         <div class="left-nav">
             <div class="logo">
-                <img width="120px" height="35px" src="../resources/images/logo.png" alt="logo">
+                <img width="120px" height="35px" src="static:///resources/images/logo.png" alt="logo">
             </div>
             <div class="options">
                 <ul>
@@ -16,87 +16,8 @@
                 </ul>
             </div>
         </div>
-        <div class="right-panel dashboard hide">
-            <div class="counts">
-                <div class="box noselect running">Running</div>
-                <div class="box noselect paused">Paused</div>
-                <div class="box noselect stopped">Stopped</div>
-                <div class="box noselect images">Images</div>
-            </div>
-            <div class="general-stats">
-                <div class="box total-images"></div>
-                <div class="box total-containers"></div>
-            </div>
-        </div>
-        <div class="right-panel images">
-            <!-- IMAGES SECTION -->
-            <div class="images-management">
-                <div class="images-list">
-                    <ul>
-                        <li>
-                            <div class="name">
-                                My Image Name : Tag
-                            </div>
-                            <div class="options">
-                                <img width="35px" src="../resources/images/play.png" alt="start container">
-                                <img width="25px" src="../resources/images/delete.png" alt="delete image">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="name">
-                                My Image Name : Tag
-                            </div>
-                            <div class="options">
-                                <img width="35px" src="../resources/images/play.png" alt="start container">
-                                <img width="25px" src="../resources/images/delete.png" alt="delete image">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="name">
-                                My Image Name : Tag
-                            </div>
-                            <div class="options">
-                                <img width="35px" src="../resources/images/play.png" alt="start container">
-                                <img width="25px" src="../resources/images/delete.png" alt="delete image">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="name">
-                                My Image Name : Tag
-                            </div>
-                            <div class="options">
-                                <img width="35px" src="../resources/images/play.png" alt="start container">
-                                <img width="25px" src="../resources/images/delete.png" alt="delete image">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="name">
-                                My Image Name : Tag
-                            </div>
-                            <div class="options">
-                                <img width="35px" src="../resources/images/play.png" alt="start container">
-                                <img width="25px" src="../resources/images/delete.png" alt="delete image">
-                            </div>
-                        </li>
-                        <button class="btn btn-info someclass">
-                            <div class="name">
-                                My Image Name : Tag
-                            </div>
-                            <div class="options">
-                                <img width="35px" src="../resources/images/play.png" alt="start container">
-                                <img width="25px" src="../resources/images/delete.png" alt="delete image">
-                            </div>
-                        </button>
-                    </ul>
-                </div>
-                <div class="general-options">
-                    <button id="btnBuildImage" class="btn btn-primary">Create/Build Image</button>
-                </div>
-            </div>
-            <div class="terminal-logs">
-                <textarea name="" id="" cols="30" rows="10"></textarea>
-            </div>
-        </div>
+        <%- include('pages/dashboard.ejs') %> 
+        <%- include('pages/images.ejs') %> 
     </div>
 
     <!-- MODALS -->
@@ -136,4 +57,4 @@
             </div>
         </div>
     </div>
-<% include('partials/_footer.ejs') %> 
+<%- include('partials/_footer.ejs') %> 
